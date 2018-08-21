@@ -1,0 +1,13 @@
+export default class Logger {
+  static log(...args) {
+    console.log(...args);
+  }
+
+  static error(...args) {
+    console.error(...args);
+  }
+
+  static alert(...args) {
+    alert(...args);
+  }
+}
