@@ -20,24 +20,17 @@ const mapStateToProps = state => ({
 class Bottom extends React.Component {
   tabs = [
     {
-      key: 'games',
+      key: 'HomeScreen',
       icon: 'inbox',
-      label: 'Games',
+      label: 'Home',
       barColor: '#388E3C',
       pressColor: 'rgba(255, 255, 255, 0.16)',
     },
     {
-      key: 'movies-tv',
+      key: 'SettingsScreen',
       icon: 'inbox',
-      label: 'Movies & TV',
+      label: 'Settings',
       barColor: '#B71C1C',
-      pressColor: 'rgba(255, 255, 255, 0.16)',
-    },
-    {
-      key: 'music',
-      icon: 'inbox',
-      label: 'Music',
-      barColor: '#E64A19',
       pressColor: 'rgba(255, 255, 255, 0.16)',
     },
   ]
@@ -65,15 +58,13 @@ class Bottom extends React.Component {
   }
 
   render() {
-    console.log('->>', this.props)
+    console.log('-_-_-_-_-> ', this.props)
     return (
-      <View style={{ flex: 1 }}>
         <BottomNavigation
-          onTabPress={newTab => this.setState({ activeTab: newTab.key })}
+          onTabPress={newTab => this.props.navigation.navigate( newTab.key )}
           renderTab={this.renderTab}
           tabs={this.tabs}
         />
-      </View>
     );
   }
 }
