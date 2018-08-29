@@ -2,7 +2,11 @@ import { createStackNavigator } from 'react-navigation';
 import { connect } from 'react-redux';
 import { reduxifyNavigator } from 'react-navigation-redux-helpers';
 
-import MainScreenContainer from './_containers/main';
+import WalletsScreenContainer from './_containers/wallets';
+import ExchangeScreenContainer from './_containers/exchange';
+import HistoryScreenContainer from './_containers/history';
+import SwapScreenContainer from './_containers/swap';
+import SettingsScreenContainer from './_containers/settings';
 
 const mapStateToProps = (state) => ({
   state: state.nav,
@@ -10,8 +14,24 @@ const mapStateToProps = (state) => ({
 
 export const Router = createStackNavigator(
   {
-    Main: {
-      screen: MainScreenContainer,
+    Wallets: {
+      screen: WalletsScreenContainer,
+      navigationOptions: { header: null, gesturesEnabled: false },
+    },
+    Exchange: {
+      screen: ExchangeScreenContainer,
+      navigationOptions: { header: null, gesturesEnabled: false },
+    },
+    History: {
+      screen: HistoryScreenContainer,
+      navigationOptions: { header: null, gesturesEnabled: false },
+    },
+    Swap: {
+      screen: SwapScreenContainer,
+      navigationOptions: { header: null, gesturesEnabled: false },
+    },
+    Settings: {
+      screen: SettingsScreenContainer,
       navigationOptions: { header: null, gesturesEnabled: false },
     },
   },
@@ -19,7 +39,7 @@ export const Router = createStackNavigator(
     cardStyle: {
       flex: 1,
     },
-    initialRouteName: 'Main',
+    initialRouteName: 'Wallets',
   },
 );
 
