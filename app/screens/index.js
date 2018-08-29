@@ -1,13 +1,17 @@
 import { createStackNavigator } from 'react-navigation';
+import { connect } from 'react-redux';
+import { reduxifyNavigator } from 'react-navigation-redux-helpers';
 
-import { Text } from 'react-native';
+import MainScreenContainer from './_containers/main';
 
-import AuthScreenContainer from './_containers/auth';
+const mapStateToProps = (state) => ({
+  state: state.nav,
+});
 
-export default createStackNavigator(
+export const Router = createStackNavigator(
   {
-    Auth: {
-      screen: () => (<Text>123123</Text>),
+    Main: {
+      screen: MainScreenContainer,
       navigationOptions: { header: null, gesturesEnabled: false },
     },
   },
@@ -15,6 +19,8 @@ export default createStackNavigator(
     cardStyle: {
       flex: 1,
     },
-    initialRouteName: 'Auth',
+    initialRouteName: 'Main',
   },
 );
+
+export default connect(mapStateToProps)(reduxifyNavigator(Router, 'root'));

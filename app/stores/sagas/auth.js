@@ -66,12 +66,12 @@ const HANDLERS = {
   },
 };
 
-export function* switchSagasAuth(action) {
-  const { defer, ...data } = action.payload;
+export function* switchSagasAuth({ type, payload = {} }) {
+  const { defer, ...data } = payload;
 
-  const handler = HANDLERS[action.type];
+  const handler = HANDLERS[type];
 
-  yield* handler(defer, data);
+  if (handler != null) yield* handler(defer, data);
 }
 
 export default function* sagaReducerAuth() {

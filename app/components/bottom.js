@@ -6,7 +6,6 @@ import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 import { View, } from 'react-native';
 import { connect } from 'react-redux';
 
-
 const mapDispatchToProps = dispatch => ({
   dispatch,
 });
@@ -14,24 +13,46 @@ const mapDispatchToProps = dispatch => ({
 const mapStateToProps = state => ({
   state,
   activeTab: state.activeTab,
+
 });
 
 
 class Bottom extends React.Component {
   tabs = [
     {
-      key: 'HomeScreen',
-      icon: 'inbox',
-      label: 'Home',
-      barColor: '#388E3C',
-      pressColor: 'rgba(255, 255, 255, 0.16)',
+      key: 'Wallets',
+      icon: 'question',
+      label: 'Wallets',
+      barColor: '#2b3759',
+      pressColor: 'rgba(255, 255, 255, 0.16)'
     },
     {
-      key: 'SettingsScreen',
-      icon: 'inbox',
+      key: 'Exchange',
+      icon: 'exchange',
+      label: 'Exchange',
+      barColor: '#2b3759',
+      pressColor: 'rgba(255, 255, 255, 0.16)'
+    },
+    {
+      key: 'History',
+      icon: 'history',
+      label: 'History',
+      barColor: '#2b3759',
+      pressColor: 'rgba(255, 255, 255, 0.16)'
+    },
+    {
+      key: 'Swap',
+      icon: 'question',
+      label: 'Swap',
+      barColor: '#2b3759',
+      pressColor: 'rgba(255, 255, 255, 0.16)'
+    },
+    {
+      key: 'Settings',
+      icon: 'cog',
       label: 'Settings',
-      barColor: '#B71C1C',
-      pressColor: 'rgba(255, 255, 255, 0.16)',
+      barColor: '#2b3759',
+      pressColor: 'rgba(255, 255, 255, 0.16)'
     },
   ]
 
@@ -49,19 +70,18 @@ class Bottom extends React.Component {
   renderTab({ tab, isActive }) {
     return (
       <FullTab
-        isActive={isActive}
+        isActive={ isActive }
         key={tab.key}
         label={tab.label}
         renderIcon={this.renderIcon(tab.icon)}
       />
     );
   }
-
   render() {
     console.log('-_-_-_-_-> ', this.props)
     return (
         <BottomNavigation
-          onTabPress={newTab => this.props.navigation.navigate( newTab.key )}
+          onTabPress={ newTab => this.props.navigation.navigate( newTab.key ) }
           renderTab={this.renderTab}
           tabs={this.tabs}
         />

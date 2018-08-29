@@ -8,23 +8,23 @@ const mapStateToProps = (state) => ({
 });
 
 
-class HomeScreen extends React.Component {
+class ExchangeScreen extends React.Component {
   render() {
-    console.log('---->>', this.props);
+    // console.log('HomeScreen---->>', this.props);
 
     return (
       <View style={{ flex: 1 }} >
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'blue' }}>
-          <Text>Home!</Text>
+          <Text>Exchange!</Text>
           <Button
             title="Go to Details"
-            onPress={() => this.props.navigation.navigate('SettingsScreen')}
+            onPress={() => this.props.navigation.navigate('Settings')}
           />
         </View>
         <Bottom navigation={ this.props.navigation } />
-    </View>
+      </View>
     );
   }
 }
 
-export default connect(mapStateToProps)(HomeScreen);
+export default connect(mapStateToProps)(ExchangeScreen);

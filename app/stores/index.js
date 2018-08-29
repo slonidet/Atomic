@@ -28,7 +28,7 @@ const createStore = (initialState = {}) => {
       ...enhancers,
     ),
   );
-  // sagaMiddleware.run(rootSaga);
+  sagaMiddleware.run(rootSaga);
   return store;
 };
 
