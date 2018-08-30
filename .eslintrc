@@ -10,13 +10,13 @@
       "modules": true
     }
   },
-  "extends" : [
+  "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
     "airbnb-base"
   ],
-  "rules" : {
-    "arrow-body-style" : "warn",
+  "rules": {
+    "arrow-body-style": "warn",
     "class-methods-use-this": "off",
     "no-underscore-dangle": "off",
     "default-case": "off",
