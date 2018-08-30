@@ -1,7 +1,6 @@
 export default {
-  white: 'hsl(0, 0%, 100%)',
-  whiteBlue: 'hsl(214, 100%, 99%)',
-  darkBlue: 'hsl(215, 21%, 29%)',
-  lightGrey: 'hsl(0, 0%, 92%)',
-  lightGreen: 'hsl(84, 92%, 42%)',
+  white: '#FFFF',
+  lightBlue: '#299CF9',
+  darkBlue: '#1E2743',
+  lightGrey: '#A7B5D0',
 };
