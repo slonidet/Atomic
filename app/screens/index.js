@@ -1,13 +1,37 @@
 import { createStackNavigator } from 'react-navigation';
-import { StyleSheet } from 'react-native';
+import { connect } from 'react-redux';
+import { reduxifyNavigator } from 'react-navigation-redux-helpers';
 
-// import AuthScreenContainer from './_containers/auth';
-import Initial from './initial/initial';
+import WalletsScreenContainer from './_containers/wallets';
+import ExchangeScreenContainer from './_containers/exchange';
+import HistoryScreenContainer from './_containers/history';
+import SwapScreenContainer from './_containers/swap';
+import SettingsScreenContainer from './_containers/settings';
 
-export default createStackNavigator(
+const mapStateToProps = (state) => ({
+  state: state.nav,
+});
+
+export const Router = createStackNavigator(
   {
-    Initial: {
-      screen: Initial,
+    Wallets: {
+      screen: WalletsScreenContainer,
+      navigationOptions: { header: null, gesturesEnabled: false },
+    },
+    Exchange: {
+      screen: ExchangeScreenContainer,
+      navigationOptions: { header: null, gesturesEnabled: false },
+    },
+    History: {
+      screen: HistoryScreenContainer,
+      navigationOptions: { header: null, gesturesEnabled: false },
+    },
+    Swap: {
+      screen: SwapScreenContainer,
+      navigationOptions: { header: null, gesturesEnabled: false },
+    },
+    Settings: {
+      screen: SettingsScreenContainer,
       navigationOptions: { header: null, gesturesEnabled: false },
     }
   },
@@ -15,6 +39,8 @@ export default createStackNavigator(
     cardStyle: {
       flex: 1,
     },
-    initialRouteName: 'Initial',
+    initialRouteName: 'Wallets',
   },
 );
+
+export default connect(mapStateToProps)(reduxifyNavigator(Router, 'root'));
