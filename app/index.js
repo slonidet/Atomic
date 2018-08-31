@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react';
-import { Platform, StyleSheet, Text, View } from 'react-native';
 import { Provider } from 'react-redux';
 
 import store from './stores';
